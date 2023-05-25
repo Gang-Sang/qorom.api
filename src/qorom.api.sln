@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qorom.api", "qorom.api.csproj", "{26B62FB1-68C0-4074-BEE8-F480817C1E68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qorom.api", ".\qorom.api\qorom.api.csproj", "{26B62FB1-68C0-4074-BEE8-F480817C1E68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qorom.api.manager", "..\qorom.api.manager\qorom.api.manager.csproj", "{7AA7183D-F971-482F-91CD-BA5C377AC9AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qorom.api.manager", ".\qorom.api.manager\qorom.api.manager.csproj", "{7AA7183D-F971-482F-91CD-BA5C377AC9AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qorom.api.infrastructure", "..\qorom.api.infrastructure\qorom.api.infrastructure.csproj", "{7CB95D69-48EA-4196-B406-9F72348E4380}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qorom.api.infrastructure", ".\qorom.api.infrastructure\qorom.api.infrastructure.csproj", "{7CB95D69-48EA-4196-B406-9F72348E4380}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qorom.api.model", "..\qorom.api.model\qorom.api.model.csproj", "{ED06DA46-EEBE-46FB-A898-25E6A4E90AA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qorom.api.model", ".\qorom.api.model\qorom.api.model.csproj", "{ED06DA46-EEBE-46FB-A898-25E6A4E90AA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
