@@ -1,18 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace qorom.api.infrastructure.mongo
 {
-    public class MongoDbRepositorySetup
+    public class MongoClientBuilder
     {
         private string? connectionString { get; set; }
 
-        public MongoDbRepositorySetup(IConfiguration configuration)
+        public MongoClientBuilder(IConfiguration configuration)
         {
             connectionString = configuration?.GetConnectionString("DefaultConnection");
         }

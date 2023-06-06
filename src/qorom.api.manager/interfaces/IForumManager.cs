@@ -4,7 +4,7 @@ namespace qorom.api.manager.interfaces
 {
     public interface IForumManager
     {
-        Forum[] GetForums();
+        IReadOnlyList<Forum> GetForums();
         Forum GetForum(int id);
     }
 }

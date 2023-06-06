@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\qorom.api.infrastructure\qorom.api.infrastructure.csproj" />
     <ProjectReference Include="..\qorom.api.manager\qorom.api.manager.csproj" />
     <ProjectReference Include="..\qorom.api.model\qorom.api.model.csproj" />
   </ItemGroup>

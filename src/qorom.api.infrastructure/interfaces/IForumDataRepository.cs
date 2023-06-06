@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using qorom.api.model;
 
 namespace qorom.api.infrastructure.interfaces
 {
-    internal interface IForumDataRepository
+    public interface IForumDataRepository
     {
+        IReadOnlyList<Forum> GetForums();
     }
 }

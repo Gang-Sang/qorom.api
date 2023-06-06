@@ -1,13 +1,21 @@
-﻿using qorom.api.manager.interfaces;
+﻿using qorom.api.infrastructure.interfaces;
+using qorom.api.manager.interfaces;
 using qorom.api.model;
 
 namespace qorom.api.manager
 {
     public class ForumManager : IForumManager
     {
-        public Forum[] GetForums()
+        private readonly IForumDataRepository _forumRepository;
+
+        public ForumManager(IForumDataRepository forumRepository)
         {
-            return new Forum[0];
+            _forumRepository = forumRepository;
+        }
+
+        public IReadOnlyList<Forum> GetForums()
+        {
+            return _forumRepository.GetForums();
         }
 
         public Forum GetForum(int id)

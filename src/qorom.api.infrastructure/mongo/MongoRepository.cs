@@ -1,17 +1,12 @@
-﻿using Microsoft.Extensions.Configuration;
-using qorom.api.infrastructure.mongo.dataModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using MongoDB.Driver;
-using AutoMapper;
 using ApiModel = qorom.api.model;
+using qorom.api.infrastructure.mongo.dataModel;
+using qorom.api.infrastructure.interfaces;
 
 namespace qorom.api.infrastructure.mongo
 {
-    public class MongoRepository
+    public class MongoRepository : IForumDataRepository
     {
         private IMapper mapper { get; set; }
         private IMongoClient client { get; set; }
@@ -22,11 +17,10 @@ namespace qorom.api.infrastructure.mongo
             mapper = _mapper;
         }
 
-        public ApiModel.Forum[] GetForums()
+        public IReadOnlyList<ApiModel.Forum> GetForums()
         {
             var collection = client.GetDatabase("qorom").GetCollection<Forum>("Forums").AsQueryable();
-
-            return mapper.Map<Forum[], ApiModel.Forum[]>(collection.ToArray());
+            return mapper.Map<List<Forum>, List<ApiModel.Forum>>(collection.ToList());
         }
 
         public void CreateForum(ApiModel.Forum forum)

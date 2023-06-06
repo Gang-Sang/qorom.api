@@ -1,4 +1,8 @@
-﻿using qorom.api.manager;
+﻿using AutoMapper;
+using MongoDB.Driver;
+using qorom.api.infrastructure.interfaces;
+using qorom.api.infrastructure.mongo;
+using qorom.api.manager;
 using qorom.api.manager.interfaces;
 
 namespace qorom.api
@@ -19,8 +23,18 @@ namespace qorom.api
 
         private void AddServices(WebApplicationBuilder builder)
         {
+            var mongoClientBuilder = new MongoClientBuilder(builder.Configuration);
+            var client = mongoClientBuilder.SetupMongoDb();
+
+            
+            builder.Services.AddSingleton<IMongoClient>(client);
+            builder.Services.AddAutoMapper(typeof(MongoMapperProfile));
+
+            builder.Services.AddScoped<IForumDataRepository, MongoRepository>();
             builder.Services.AddScoped<IForumManager, ForumManager>();
             builder.Services.AddScoped<IPostManager, PostManager>();
         }
+
+        
     }
 }

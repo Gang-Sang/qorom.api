@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\qorom.api.infrastructure\qorom.api.infrastructure.csproj" />
     <ProjectReference Include="..\qorom.api.model\qorom.api.model.csproj" />
   </ItemGroup>
 
