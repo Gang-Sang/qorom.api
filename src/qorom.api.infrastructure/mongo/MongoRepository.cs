@@ -28,5 +28,23 @@ namespace qorom.api.infrastructure.mongo
             var collection = client.GetDatabase("qorom").GetCollection<Forum>("Forums");
             collection.InsertOne(mapper.Map<ApiModel.Forum, Forum>(forum));
         }
+
+        public void CreatePost(int forumId, ApiModel.Post post)
+        {
+            var collection = client.GetDatabase("qorom").GetCollection<Post>("Posts");
+            collection.InsertOne(mapper.Map<ApiModel.Post, Post>(post));
+        }
+
+        public IReadOnlyList<ApiModel.Post> GetPostsForForum(int forumId)
+        {
+            var collection = client.GetDatabase("qorom").GetCollection<Post>("Posts");
+            return mapper.Map<List<Post>, List<ApiModel.Post>>(collection.Find(x => x.ForumId == forumId).SortByDescending(x => x.Updated).ToList());
+        }
+
+        public ApiModel.Post GetPost(int postId)
+        {
+            var collection = client.GetDatabase("qorom").GetCollection<Post>("Posts");
+            return mapper.Map<Post, ApiModel.Post>(collection.Find(x => x.PostId == postId).FirstOrDefault());
+        }
     }
 }

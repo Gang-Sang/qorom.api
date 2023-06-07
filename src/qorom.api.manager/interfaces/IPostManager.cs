@@ -4,7 +4,8 @@ namespace qorom.api.manager.interfaces
 {
     public interface IPostManager
     {
-        Post[] GetPostsForForum(int forumId, int? pageNum, int? pageSize);
+        IReadOnlyList<Post> GetPostsForForum(int forumId, int? pageNum, int? pageSize);
+        void CreatePost(int forumId, Post post);
         Post GetPost(int id, int? pageNum, int? pageSize);
     }
 }

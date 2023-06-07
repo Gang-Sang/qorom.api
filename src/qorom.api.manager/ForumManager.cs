@@ -13,14 +13,14 @@ namespace qorom.api.manager
             _forumRepository = forumRepository;
         }
 
+        public void CreateForum(Forum forum)
+        {
+            _forumRepository.CreateForum(forum);
+        }
+
         public IReadOnlyList<Forum> GetForums()
         {
             return _forumRepository.GetForums();
-        }
-
-        public Forum GetForum(int id)
-        {
-            return new Forum();
         }
     }
 }
