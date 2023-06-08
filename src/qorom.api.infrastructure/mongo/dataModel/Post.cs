@@ -9,5 +9,6 @@ namespace qorom.api.infrastructure.mongo.dataModel
         internal string? Content { get; set; }
         internal DateTime Created { get; set; }
         internal DateTime? Updated { get; set; }
+        internal PostType PostType { get; set; }
     }
 }
