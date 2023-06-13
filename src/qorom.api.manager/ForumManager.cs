@@ -18,6 +18,11 @@ namespace qorom.api.manager
             _forumRepository.CreateForum(forum);
         }
 
+        public Forum GetForum(int id)
+        {
+            return _forumRepository.GetForum(id);
+        }
+
         public IReadOnlyList<Forum> GetForums()
         {
             return _forumRepository.GetForums();

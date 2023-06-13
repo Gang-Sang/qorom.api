@@ -6,6 +6,7 @@ var app = new AppBuilder().Build(args);
 
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/forum", (IForumManager manager) => manager.GetForums());
+app.MapGet("/forum/{forumId}", (int forumId, IForumManager manager) => manager.GetForum());
 app.MapPost("/forum", (Forum forum, IForumManager manager) => manager.CreateForum(forum));
 
 app.MapGet("/forum/{forumId}/post/{pageNum}/{pageSize}", (int forumId, int? pageNum, int? pageSize, IPostManager manager) => manager.GetPostsForForum(forumId, pageNum, pageSize));

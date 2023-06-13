@@ -5,6 +5,7 @@ namespace qorom.api.infrastructure.interfaces
     public interface IForumDataRepository
     {
         IReadOnlyList<Forum> GetForums();
+        Forum GetForum(int id);
         void CreateForum(Forum forum);
 
         IReadOnlyList<Post> GetPostsForForum(int forumId);

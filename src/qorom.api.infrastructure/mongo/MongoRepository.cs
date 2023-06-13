@@ -19,8 +19,14 @@ namespace qorom.api.infrastructure.mongo
 
         public IReadOnlyList<ApiModel.Forum> GetForums()
         {
-            var collection = client.GetDatabase("qorom").GetCollection<Forum>("Forums").AsQueryable();
-            return mapper.Map<List<Forum>, List<ApiModel.Forum>>(collection.ToList());
+            var collection = client.GetDatabase("qorom").GetCollection<Forum>("Forums");
+            return mapper.Map<List<Forum>, List<ApiModel.Forum>>(collection.Find(x => true).ToList());
+        }
+
+        public ApiModel.Forum GetForum(int id)
+        {
+            var collection = client.GetDatabase("qorom").GetCollection<Forum>("Forums");
+            return mapper.Map<Forum, ApiModel.Forum>(collection.Find(x => x.ForumId == id).FirstOrDefault());
         }
 
         public void CreateForum(ApiModel.Forum forum)
