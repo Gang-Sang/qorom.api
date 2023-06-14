@@ -1,11 +1,14 @@
 ﻿
+using MongoDB.Bson;
+
 namespace qorom.api.infrastructure.mongo.dataModel
 {
-    internal class Forum
+    public class Forum
     {
-        internal int ForumId { get; set; }
-        internal string Name { get; set; }
-        internal string Description { get; set; }
-        internal string? CategoryName { get; set; }
+        public ObjectId _id { get; set; }
+        public int ForumId { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public string? CategoryName { get; set; }
     }
 }

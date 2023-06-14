@@ -10,6 +10,8 @@ namespace qorom.api.infrastructure.mongo
         {
             CreateMap<Forum, ApiModel.Forum>();
             CreateMap<ApiModel.Forum, Forum>();
+            CreateMap<ApiModel.Post, Post>();
+            CreateMap<Post, ApiModel.Post>();
         }
     }
 }

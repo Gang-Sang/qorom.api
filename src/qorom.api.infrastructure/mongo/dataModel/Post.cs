@@ -1,14 +1,17 @@
 ﻿
+using MongoDB.Bson;
+
 namespace qorom.api.infrastructure.mongo.dataModel
 {
-    internal class Post
+    public class Post
     {
-        internal int PostId { get; set; }
-        internal int ForumId { get; set; }
-        internal string? Title { get; set; }
-        internal string? Content { get; set; }
-        internal DateTime Created { get; set; }
-        internal DateTime? Updated { get; set; }
-        internal PostType PostType { get; set; }
+        public ObjectId _id { get; set; }
+        public int PostId { get; set; }
+        public int ForumId { get; set; }
+        public string? Title { get; set; }
+        public string? Content { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime? Updated { get; set; }
+        public PostType PostType { get; set; }
     }
 }

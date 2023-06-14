@@ -26,13 +26,15 @@ namespace qorom.api.infrastructure.mongo
         public ApiModel.Forum GetForum(int id)
         {
             var collection = client.GetDatabase("qorom").GetCollection<Forum>("Forums");
-            return mapper.Map<Forum, ApiModel.Forum>(collection.Find(x => x.ForumId == id).FirstOrDefault());
+            var forum = collection.Find(x => x.ForumId == id).FirstOrDefault();
+            return mapper.Map<Forum, ApiModel.Forum>(forum);
         }
 
         public void CreateForum(ApiModel.Forum forum)
         {
             var collection = client.GetDatabase("qorom").GetCollection<Forum>("Forums");
-            collection.InsertOne(mapper.Map<ApiModel.Forum, Forum>(forum));
+            var toInsert = mapper.Map<ApiModel.Forum, Forum>(forum);
+            collection.InsertOne(toInsert);
         }
 
         public void CreatePost(int forumId, ApiModel.Post post)

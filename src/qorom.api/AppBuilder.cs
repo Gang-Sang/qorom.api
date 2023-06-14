@@ -25,7 +25,6 @@ namespace qorom.api
         {
             var mongoClientBuilder = new MongoClientBuilder(builder.Configuration);
             var client = mongoClientBuilder.SetupMongoDb();
-
             
             builder.Services.AddSingleton<IMongoClient>(client);
             builder.Services.AddAutoMapper(typeof(MongoMapperProfile));
