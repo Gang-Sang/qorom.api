@@ -32,6 +32,7 @@ namespace qorom.api
             builder.Services.AddScoped<IForumDataRepository, MongoRepository>();
             builder.Services.AddScoped<IForumManager, ForumManager>();
             builder.Services.AddScoped<IPostManager, PostManager>();
+            builder.Services.AddScoped<IUserManager, UserManager>();
         }
 
         

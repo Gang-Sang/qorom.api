@@ -5,6 +5,8 @@ using qorom.api.manager.interfaces;
 var app = new AppBuilder().Build(args);
 
 app.MapGet("/", () => "Hello World!");
+
+
 app.MapGet("/forum", (IForumManager manager) => manager.GetForums());
 app.MapGet("/forum/{forumId}", (int forumId, IForumManager manager) => manager.GetForum(forumId));
 app.MapPost("/forum", (Forum forum, IForumManager manager) => manager.CreateForum(forum));
@@ -13,6 +15,10 @@ app.MapGet("/forum/{forumId}/post/{pageNum}/{pageSize}", (int forumId, int? page
 app.MapPost("/forum/{forumId}/post", (int forumId, Post post, IPostManager manager) => manager.CreatePost(forumId, post));
 
 app.MapGet("/post/{postId}/{pageNum}/{pageSize}", (int postId, int? pageNum, int? pageSize, IPostManager manager) => manager.GetPost(postId,pageNum, pageSize));
+
+app.MapGet("/user/{publicKey}/signingmessage", (string publicKey, IUserManager manager) => manager.GetSigningMessage(publicKey));
+app.MapGet("/user/{publicKey}", (string publicKey, IUserManager manager) => manager.GetUser(publicKey));
+app.MapPost("/user/{publicKey}", (string publicKey, string signedMessage, IUserManager manager) => manager.SignInUser(publicKey, signedMessage));
 
 app.Run();
 
