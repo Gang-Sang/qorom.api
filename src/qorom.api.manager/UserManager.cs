@@ -11,12 +11,12 @@ namespace qorom.api.manager
             throw new NotImplementedException();
         }
 
-        public User GetUser(string publicKey)
+        public User SignInUser(string publicKey, string signedMessage)
         {
             throw new NotImplementedException();
         }
 
-        public User SignInUser(string publicKey, string signedMessage)
+        public User GetUserSession(string publicKey, string sessionKey)
         {
             throw new NotImplementedException();
         }

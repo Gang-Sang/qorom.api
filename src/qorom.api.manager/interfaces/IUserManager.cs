@@ -11,6 +11,7 @@ namespace qorom.api.manager.interfaces
     {
         string GetSigningMessage(string publicKey);
         User SignInUser(string publicKey, string signedMessage);
-        User GetUser(string publicKey);
+
+        User GetUserSession(string publicKey, string sessionKey);
     }
 }

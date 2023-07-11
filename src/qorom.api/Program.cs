@@ -17,8 +17,9 @@ app.MapPost("/forum/{forumId}/post", (int forumId, Post post, IPostManager manag
 app.MapGet("/post/{postId}/{pageNum}/{pageSize}", (int postId, int? pageNum, int? pageSize, IPostManager manager) => manager.GetPost(postId,pageNum, pageSize));
 
 app.MapGet("/user/{publicKey}/signingmessage", (string publicKey, IUserManager manager) => manager.GetSigningMessage(publicKey));
-app.MapGet("/user/{publicKey}", (string publicKey, IUserManager manager) => manager.GetUser(publicKey));
 app.MapPost("/user/{publicKey}", (string publicKey, string signedMessage, IUserManager manager) => manager.SignInUser(publicKey, signedMessage));
+
+app.MapGet("/user/{publicKey}/session/{sessionKey}", (string publicKey, string sessionKey, IUserManager manager) => manager.GetUserSession(publicKey, sessionKey));
 
 app.Run();
 
